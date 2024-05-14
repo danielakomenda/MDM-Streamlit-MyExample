@@ -2,6 +2,9 @@ import streamlit as st
 import pymongo
 import pandas as pd
 
+st.set_page_config(page_title="Temperature")
+st.header("Weather-Data")
+
 # Initialize connection.
 db_name = "MDM-Python-MeinProjekt"
 collection_name = "Wetter_Durchschnitt"
