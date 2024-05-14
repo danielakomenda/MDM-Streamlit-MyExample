@@ -1,6 +1,9 @@
+import os
+
 import streamlit as st
 import pymongo
 import pandas as pd
+
 
 st.set_page_config(page_title="Temperature")
 st.header("Weather-Data")
@@ -11,7 +14,9 @@ collection_name = "Wetter_Durchschnitt"
 
 @st.cache_resource
 def init_connection():
-    connection_uri = st.secrets["mongo"]["db_connectionstring"]
+    
+    connection_uri = os.getenv("MONGODB_CONNECTION_STRING")
+    #connection_uri = st.secrets["mongo"]["db_connectionstring"]
     return pymongo.MongoClient(connection_uri)
 
 client = init_connection()
